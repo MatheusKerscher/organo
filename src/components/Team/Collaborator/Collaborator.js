@@ -1,4 +1,6 @@
 import { IoIosCloseCircle } from 'react-icons/io'
+import { CiImageOff } from 'react-icons/ci'
+
 import './Collaborator.css'
 
 export const Collaborator = ({id, name, role, image, backgroundColor, onRemove}) => {
@@ -14,7 +16,15 @@ export const Collaborator = ({id, name, role, image, backgroundColor, onRemove})
                 style={{backgroundColor: backgroundColor}}
                 className='header'
             >
-                <img src={image} alt={name} />
+                {
+                    image ?
+                        <img src={image} alt={name} />
+                        : (
+                            <div className='icon'>
+                                <CiImageOff size={100} />
+                            </div>
+                        )
+                }
             </div>
 
             <div className='footer'>

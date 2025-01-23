@@ -77,6 +77,10 @@ function App() {
     setCollaborators(collaborators.filter(c => c.id !== collaboratorId))
   }
 
+  const onSaveTeam = (team) => {
+      setTeams([...teams, team])
+  }
+
   const changeTeamColor = (teamId, teamColor) => {
     setTeams(teams.map(t => {
       if(t.id === teamId) {
@@ -95,10 +99,11 @@ function App() {
       <Form
         teams={teams.map(t => t.name)}
         onSaveCollaborator={(collaborator) => onSaveCollaborator(collaborator)}
+        onSaveTeam={onSaveTeam}
       />
 
       {
-        teams &&  <div className="organization-container">
+        collaborators.length > 0 && <div className="organization-container">
           <h2 className="organization-title">Minha organização</h2>
         </div>
       }
