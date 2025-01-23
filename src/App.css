@@ -1,0 +1,12 @@
+.organization-container {
+    text-align: center;
+}
+
+.organization-title {
+    font-size: 38px;
+    text-align: center;
+    color: #6278f7;
+    border-bottom: 4px solid;
+    padding-bottom: 8px;
+    display: inline-block;
+}

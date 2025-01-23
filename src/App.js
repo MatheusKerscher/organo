@@ -1,11 +1,15 @@
 import { useState } from "react";
+
+import './App.css'
+
 import Banner from "./components/Banner";
 import Form from "./components/Form";
 import Team from "./components/Team";
 import Footer from "./components/Footer";
+import hexToRgba from "hex-to-rgba";
 
 function App() {
-  const teams= [
+  const [teams, setTeams] = useState([
     {
       name: 'Programação',
       primaryColor: '#57c278',
@@ -47,13 +51,28 @@ function App() {
       primaryColor: '#ff8a29',
       secondaryColor: '#ffeedf'
     },
-  ]
+  ])
   
   const [collaborators, setCollaborators] = useState([]);
 
   const onSaveCollaborator = (collaborator) => {
     setCollaborators([...collaborators, collaborator]);
   };
+
+  const onRemoveCollaborator = () => {
+    console.log('Removed')
+  }
+
+  const changeTeamColor = (teamName, teamColor) => {
+    setTeams(teams.map(t => {
+      if(t.name === teamName) {
+        t.primaryColor = teamColor
+        t.secondaryColor = hexToRgba(teamColor, '0.6')
+      }
+
+      return t
+    }))
+  }
 
   return (
     <div className="App">
@@ -65,6 +84,12 @@ function App() {
       />
 
       {
+        teams &&  <div className="organization-container">
+          <h2 className="organization-title">Minha organização</h2>
+        </div>
+      }
+
+      {
         teams.map(t => (
           <Team 
             key={t.name} 
@@ -72,6 +97,8 @@ function App() {
             primaryColor={t.primaryColor}
             secondaryColor={t.secondaryColor}
             collaborators={collaborators.filter(c => c.team === t.name)}
+            onRemoveCollaborator={onRemoveCollaborator}
+            changeTeamColor={changeTeamColor}
           />
         ))
       }
