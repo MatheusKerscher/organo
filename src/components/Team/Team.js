@@ -10,7 +10,7 @@ export const Team = (props) => {
         className='inputColor' 
         defaultValue={props.primaryColor} 
         value={props.primaryColor} 
-        onChange={(color) => props.changeTeamColor(props.teamName, color.toHexString())} 
+        onChange={(color) => props.changeTeamColor(props.teamId, color.toHexString())} 
       />
 
       <h3 style={{ borderColor: props.primaryColor }}>{props.teamName}</h3>
@@ -18,7 +18,8 @@ export const Team = (props) => {
       <div className="collaborators">
         {props.collaborators.map((c) => (
           <Collaborator 
-            key={c.name}
+            key={c.id}
+            id={c.id}
             name={c.name} 
             role={c.role} 
             image={c.image} 
