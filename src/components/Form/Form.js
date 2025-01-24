@@ -54,7 +54,7 @@ export const Form = (props) => {
         <h2>Preencha os dados para criar o card do colaborador</h2>
 
         <TextInput
-          required={true}
+          required
           label="Nome"
           placeholder="Digite o seu nome"
           inputValue={name}
@@ -62,7 +62,7 @@ export const Form = (props) => {
         />
 
         <TextInput
-          required={true}
+          required
           label="Cargo"
           placeholder="Digite o seu cargo"
           inputValue={role}
@@ -91,7 +91,7 @@ export const Form = (props) => {
         <h2>Preencha os dados para criar o time</h2>
 
         <TextInput
-          required={true}
+          required
           label="Nome"
           placeholder="Digite o nome do time"
           inputValue={teamName}
