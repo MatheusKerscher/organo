@@ -67,7 +67,8 @@ function App() {
   const onSaveCollaborator = (collaborator) => {
     collaborator = {
       id: UUID(),
-      ...collaborator
+      ...collaborator,
+      favorite: false
     }
 
     setCollaborators([...collaborators, collaborator]);
@@ -90,6 +91,15 @@ function App() {
 
       return t
     }))
+  }
+
+  const onFavoriteCollaborator = (collaboratorId) => {
+    setCollaborators(collaborators.map(c => {
+      if(c.id === collaboratorId) c.favorite = !c.favorite
+
+      return c
+    }
+  ))
   }
 
   return (
@@ -119,6 +129,7 @@ function App() {
             collaborators={collaborators.filter(c => c.team === t.name)}
             changeTeamColor={changeTeamColor}
             onRemoveCollaborator={onRemoveCollaborator}
+            onFavoriteCollaborator={onFavoriteCollaborator}
           />
         ))
       }

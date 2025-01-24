@@ -47,4 +47,13 @@
   position: absolute;
   right: -10px;
   top: -10px;
+  cursor: pointer;
+}
+
+.collaborator .favorite {
+  margin-top: 10px;
+}
+
+.collaborator .favorite svg {
+  cursor: pointer;
 }

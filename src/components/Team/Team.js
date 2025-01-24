@@ -23,8 +23,10 @@ export const Team = (props) => {
             name={c.name} 
             role={c.role} 
             image={c.image} 
+            favorite={c.favorite} 
             backgroundColor={props.primaryColor}
             onRemove={props.onRemoveCollaborator}
+            onFavoriteCollaborator={props.onFavoriteCollaborator}
           />
         ))}
       </div>
